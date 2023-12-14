@@ -1,12 +1,8 @@
 const users = require("../models/schema");
 
-// for register
-exports.EmpRegister = async (req, res) => {
 
 
-}
-
-//for login
+//for employe login
 
 exports.Emplogin = async (req, res) => {
 
