@@ -3,26 +3,40 @@ require('dotenv').config()
 
 //import express
 const express=require('express')
-
+const {readdirSync} = require('fs')
 const cors=require('cors')
-const router = require('./routes/router')
+// const router = require('./routes/router')
+//schema
+const UserModel = require('./models/Users')
 
 //import db
 require('./db/connection')
 
+//routes 
+
+
 //server
-const server=express()
+const app=express()
 
 //connect frontend
-server.use(cors())
-server.use(express.json())
-server.use(router)
+app.use(cors(
+  
+))
+app.use(express.json())
+
+
+readdirSync('./routes').map((route)=>app.use('/api/v1', require('./routes/' +route)))
 
 
 
-const port=4000 || process.env.port
+
+const PORT=5000 || process.env.port
 
 
-server.listen(port,()=>{
-    console.log(`Inhouse Server Started at port ${port}`);
-})
+const server =()=>{
+    app.listen(PORT,()=>{
+        console.log('listening to port:',PORT);
+    })
+}
+server()
+

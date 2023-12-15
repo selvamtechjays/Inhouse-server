@@ -1,14 +1,13 @@
-const express=require('express')
-const { EmpRegister, Emplogin} = require('../controllers/logic')
+const { addEmployee, getEmployees, deleteEmployee } = require('../controllers/TeamEmployee')
 
-
-//create an object for router class in object
-const router=new express.Router()
-
-
-//roote for login
-router.post('/inhouse/login',Emplogin)
+const router = require('express').Router()
 
 
 
-module.exports=router
+
+
+router.post('/add-employee', addEmployee)
+    .get('/get-employees', getEmployees)
+    .delete('/delete-employee/:id', deleteEmployee )
+
+module.exports =router
