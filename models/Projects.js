@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 //create new schema for project
-const projects=mongoose.model('Project',{
+const ProjectSchema = new mongoose.Schema({
     projectName:
     {
             type: String,
@@ -9,7 +9,7 @@ const projects=mongoose.model('Project',{
             trim:true,
             maxLength:50
         },
-        clientName:{
+     clientName:{
         type: String,
         required:true,
         maxLength:20,
@@ -30,17 +30,17 @@ const projects=mongoose.model('Project',{
         trim:true
     },
     projectType:{
-    type :String,
-    require:true,
-    maxLength:20,
-    trim:true
-},
-  resources:{
+            type :String,
+            require:true,
+            maxLength:20,
+            trim:true
+   },
+   resources:{
         type :String,
         require:true,
         maxLength:20,
         trim:true
     } , 
-})
+},{timestamps:true})
 
-module.exports={projects}
+module.exports=mongoose.model('Projects',ProjectSchema)
