@@ -53,13 +53,41 @@ exports.getEmployees = async(req,res)=>{
 
 //edit Employee
 
-exports.updateEmployee =async(req,res)=>{
-    console.log(req.body);
-   const {id,...rest} = req.body
-    console.log(rest);
-    await TeamSchema.employees.updateOne({_id :id}, rest)
-    res.send({success:true, message:"data updated successfully"})
-}
+// exports.updateEmployee =async(req,res)=>{
+//     console.log(req.body);
+//    const {id,...rest} = req.body
+//     console.log(rest);
+//     await TeamSchema.employees.updateOne({_id :id}, rest)
+//     res.send({success:true, message:"data updated successfully"})
+// }
+
+exports.updateEmployee = async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { name, role, employeeCode, slack } = req.body;
+  
+      // Check if the employee with the given id exists
+      const existingEmployee = await TeamSchema.employees.findById(id);
+  
+      if (!existingEmployee) {
+        return res.status(404).json({ success: false, message: 'Employee not found' });
+      }
+  
+      // Update the existing employee properties
+      existingEmployee.name = name;
+      existingEmployee.role = role;
+      existingEmployee.employeeCode = employeeCode;
+      existingEmployee.slack = slack;
+  
+      // Save the updated employee
+      await existingEmployee.save();
+  
+      res.status(200).json({ success: true, message: 'Employee updated successfully', employee: existingEmployee });
+    } catch (error) {
+      console.error('Error updating employee:', error);
+      res.status(500).json({ success: false, message: 'Internal Server Error' });
+    }
+  };
 
 
 

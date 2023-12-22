@@ -12,7 +12,7 @@ router.post('/api/add-employee',addEmployee)
 // route for get employee
 router.get('/api/get-employees',getEmployees)
 //route for update employee
-router.post('/api/update-employee',updateEmployee)
+router.put('/api/update-employee/:id',updateEmployee)
 //route for delete employee
 router.delete('/api/delete-employee/:id',deleteEmployee)
 
