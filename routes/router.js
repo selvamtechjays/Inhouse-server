@@ -2,6 +2,7 @@
 const express=require('express')
 const { addEmployee, getEmployees, updateEmployee, deleteEmployee } = require('../controllers/TeamEmployee')
 const { addProject, getProjects,deleteProject, updateProject } = require('../controllers/Projects')
+const { addTracker, getTrackers, deleteTracker, updateTracker } = require('../controllers/Tracker')
 
 
 //create an object for router class in object
@@ -25,6 +26,18 @@ router.delete('/api/delete-project/:id',deleteProject)
 
 // route for update projects
 router.put("/api/update-project/:id", updateProject);
+
+
+// routes for Tracker 
+
+//route for add tracker
+router.post('/api/add-tracker',addTracker);
+//route for get tracker
+router.get('/api/get-tracker',getTrackers);
+//route for delete tracker
+router.delete('/api/delete-tracker/:id',deleteTracker);
+//route for update tracker
+router.put("/api/update-tracker/:id",updateTracker);
 
 
 module.exports=router
