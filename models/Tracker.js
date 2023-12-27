@@ -7,7 +7,7 @@ const trackerSchema = new mongoose.Schema({
     required: true,
   },
   employeeCode: {
-    type: String,
+    type: Number,
     unique: true,
     required: true,
     trim: true, // Added trim: true
