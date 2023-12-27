@@ -1,8 +1,7 @@
-
 const mongoose = require("mongoose");
 
-//create new schema for Team
-const trackers = mongoose.model("TrackerSchema", {
+// Create a new schema for Tracker
+const trackerSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -10,28 +9,27 @@ const trackers = mongoose.model("TrackerSchema", {
   employeeCode: {
     type: String,
     unique: true,
-    required:true
-    // Removed trim: true,
+    required: true,
+    trim: true, // Added trim: true
   },
   techStack: {
-    type: String, 
+    type: String,
     required: true,
-    
   },
   project: {
     type: String,
-    
     required: true,
   },
   percentage: {
-    type: String, // Changed data type to Number
+    type: Number,
     required: true,
   },
   priority: {
     type: String,
-    
-    // Constraints unchanged
   },
 });
 
-module.exports = { trackers };
+// Create a model named 'Tracker' using the trackerSchema
+const Tracker = mongoose.model("Tracker", trackerSchema);
+
+module.exports = Tracker;
