@@ -36,7 +36,7 @@ const ProjectSchema = new mongoose.Schema({
             trim:true
    },
    resources:{
-        type :String,
+        type :Number,
         require:true,
         maxLength:20,
         trim:true
