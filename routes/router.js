@@ -1,6 +1,6 @@
 
 const express=require('express')
-const { addEmployee, getEmployees, updateEmployee, deleteEmployee } = require('../controllers/TeamEmployee')
+const { addEmployee, getEmployees, updateEmployee, deleteEmployee, getSingleEmp } = require('../controllers/TeamEmployee')
 const { addProject, getProjects,deleteProject, updateProject } = require('../controllers/Projects')
 const { addTracker, getTrackers, deleteTracker, updateTracker } = require('../controllers/Tracker')
 
@@ -12,6 +12,8 @@ const router=new express.Router()
 router.post('/api/add-employee',addEmployee)
 // route for get employee
 router.get('/api/get-employees',getEmployees)
+// route for get single employee
+router.get('/api/get-singleEmp/:category',getSingleEmp)
 //route for update employee
 router.put('/api/update-employee/:id',updateEmployee)
 //route for delete employee

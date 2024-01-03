@@ -40,6 +40,7 @@ exports.addEmployee=async(req,res)=>{
 // }
 
 exports.getEmployees = async(req,res)=>{
+
     try{
         const employees = await TeamSchema.employees.find().sort({createdAt:1})
         res.status(200).json(employees)
@@ -48,6 +49,19 @@ exports.getEmployees = async(req,res)=>{
         res.status(500).json({message:"Server Error"});
 
     }
+}
+
+exports.getSingleEmp = async(req,res)=>{
+  const {category} =req.params
+
+  try{
+      const employees = await TeamSchema.employees.findOne({ name:category })
+      res.status(200).json(employees)
+
+  }catch(error){
+      res.status(500).json({message:"Server Error"});
+
+  }
 }
 
 
