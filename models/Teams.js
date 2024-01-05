@@ -23,10 +23,8 @@ const employees=mongoose.model('Employee',{
     } , 
     employeeCode:
     {
-        type:String ,
-        unique:true,
-        required:true,
-        maxLength:10
+        type:String
+       
 
        
        
