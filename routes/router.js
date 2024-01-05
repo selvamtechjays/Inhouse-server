@@ -1,8 +1,8 @@
 
 const express=require('express')
-const { addEmployee, getEmployees, updateEmployee, deleteEmployee, getSingleEmp } = require('../controllers/TeamEmployee')
+const { addEmployee, getEmployees, updateEmployee, deleteEmployee, getSingleEmp, } = require('../controllers/TeamEmployee')
 const { addProject, getProjects,deleteProject, updateProject } = require('../controllers/Projects')
-const { addTracker, getTrackers, deleteTracker, updateTracker } = require('../controllers/Tracker')
+const { addTracker, getTrackers, deleteTracker, updateTracker,getSingleEmpEdit  } = require('../controllers/Tracker')
 
 
 //create an object for router class in object
@@ -14,6 +14,8 @@ router.post('/api/add-employee',addEmployee)
 router.get('/api/get-employees',getEmployees)
 // route for get single employee
 router.get('/api/get-singleEmp/:category',getSingleEmp)
+// route for get single employee
+router.get('/api/get-singleEmpedit/:v',getSingleEmpEdit)
 //route for update employee
 router.put('/api/update-employee/:id',updateEmployee)
 //route for delete employee

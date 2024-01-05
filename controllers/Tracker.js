@@ -34,9 +34,23 @@ exports.getTrackers = async (req, res) => {
     }
 };
 
+exports.getSingleEmpEdit = async(req,res)=>{
+    const {v} =req.params
+  
+    try{
+        const employees = await Tracker.findOne({ _id:v })
+        res.status(200).json(employees)
+  
+    }catch(error){
+        res.status(500).json({message:"Server Error"});
+  
+    }
+  }
+
 // Delete Tracker
 exports.deleteTracker = async (req, res) => {
     const { id } = req.params;
+    console.log(id);
 
     try {
         const deletedTracker = await Tracker.findByIdAndDelete(id);
