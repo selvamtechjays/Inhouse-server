@@ -6,12 +6,15 @@ const express=require('express')
 
 const cors=require('cors')
 const router = require('./routes/router')
+const cookieParser = require('cookie-parser')
 
 //import db
 require('./db/connection')
 
 //server
 const server=express()
+server.use(cookieParser());
+
 
 //connect frontend
 server.use(cors())
