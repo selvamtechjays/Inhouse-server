@@ -23,7 +23,7 @@ server.use(router)
 
 
 
-const port=4000 || process.env.port
+const port=3000 || process.env.port
 
 
 
