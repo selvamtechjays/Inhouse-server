@@ -18,7 +18,7 @@ server.use(cookieParser());
 
 //connect frontend
 server.use(cors({
-    origin: 'http://localhost:5173', 
+    origin: 'https://main.d13xvaj8qtihq.amplifyapp.com', 
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true, 
   }));
