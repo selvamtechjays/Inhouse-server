@@ -18,7 +18,7 @@ server.use(cookieParser());
 
 //connect frontend
 server.use(cors({
-    origin: 'http://13.201.109.195:3000', 
+    origin: 'http://13.201.109.195', 
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true, 
   }));
