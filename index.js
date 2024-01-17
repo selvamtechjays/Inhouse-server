@@ -17,11 +17,13 @@ server.use(cookieParser());
 
 
 //connect frontend
-server.use(cors({
-    origin: 'http://localhost:5173', 
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, 
-  }));
+// server.use(cors({
+//     origin: 'http://localhost:5173', 
+//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//     credentials: true, 
+//   }));
+
+server.use(cors())
 
 server.use(express.json())
 server.use(router)
