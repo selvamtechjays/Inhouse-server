@@ -16,7 +16,7 @@ const server=express()
 server.use(cookieParser());
 
 
-connect frontend
+// connect frontend
 server.use(cors({
     origin: 'http://13.201.109.195', 
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
