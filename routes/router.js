@@ -45,6 +45,6 @@ router.delete('/api/delete-tracker/:id',deleteTracker);
 router.put("/api/update-tracker/:id",updateTracker);
 
 //user Route
-router.post("/register",RegisterUser)
+router.post("/api/register",RegisterUser)
 
 module.exports=router
