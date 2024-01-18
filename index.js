@@ -16,7 +16,7 @@ const server=express()
 
 // connect frontend
 server.use(cors({
-    origin: 'http://13.201.109.195', 
+    origin: 'http://43.204.196.20', 
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true, 
   }));
