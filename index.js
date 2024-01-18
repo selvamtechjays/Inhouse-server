@@ -13,8 +13,6 @@ require('./db/connection')
 
 //server
 const server=express()
-server.use(cookieParser());
-
 
 // connect frontend
 server.use(cors({
@@ -25,14 +23,13 @@ server.use(cors({
 
 // server.use(cors())
 
+server.use(cookieParser());
 server.use(express.json())
 server.use(router)
 
 
 
-const port=3000 || process.env.port
-
-
+const port = process.env.PORT || 3000;
 
 
 server.listen(port,()=>{
